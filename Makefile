@@ -1,17 +1,15 @@
-# TARGET = simulator:clang::11.0
-# ARCHS = x86_64
-TARGET = iphone::9.0:11.0
-ARCHS = armv7 armv7s arm64 arm64e
+PACKAGE_VERSION=$(THEOS_PACKAGE_BASE_VERSION)
 
 include $(THEOS)/makefiles/common.mk
 
+export ARCHS = arm64 arm64e
+export TARGET = iphone:clang:13.0:13.0
+
 TWEAK_NAME = OneNotify
 OneNotify_FILES = Tweak.xm
-OneNotify_EXTRA_FRAMEWORKS += MenushkaPrefs
+OneNotify_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 
 after-install::
 	install.exec "killall -9 SpringBoard"
-SUBPROJECTS += onenotifypreferences
-include $(THEOS_MAKE_PATH)/aggregate.mk
