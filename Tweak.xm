@@ -1,7 +1,7 @@
 BOOL prefHideTextNotificationCenter = YES;
 BOOL prefPullToDismissEnabled = YES;
 BOOL prefPullToDismissVibrateEnabled = YES;
-float prefPullToDismissAmount = 100;
+float prefPullToDismissAmount = 150;
 
 @interface NCNotificationCombinedListViewController : UIViewController
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
